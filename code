@@ -1,0 +1,177 @@
+clc;
+close all;
+clear all;
+function varargout = EVM(varargin)
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @EVM_OpeningFcn, ...
+                   'gui_OutputFcn',  @EVM_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+function EVM_OpeningFcn(hObject, eventdata, handles, varargin)
+handles.output = hObject;
+guidata(hObject, handles);
+global Akshay;
+global Amol;
+global Utpal;
+global Sonu;
+global Raj;
+Akshay=0;
+Amol=0;
+Utpal=0;
+Sonu=0;
+Raj=0;
+function varargout = EVM_OutputFcn(hObject, eventdata, handles)
+varargout{1} = handles.output;
+function Akshay_Callback(hObject, eventdata, handles)
+global Akshay;
+global Amol;
+global Utpal;
+global Sonu;
+global Raj;
+
+Akshay=Akshay+1;
+load chirp.mat;
+for i=1:1:5
+    sound(y, Fs);
+end
+function Amol_Callback(hObject, eventdata, handles)
+global Akshay;
+global Amol;
+global Utpal;
+global Sonu;
+global Raj;
+
+Amol=Amol+1;
+load chirp.mat;
+for i=1:1:5
+    sound(y, Fs);
+end
+function Utpal_Callback(hObject, eventdata, handles)
+global Akshay;
+global Amol;
+global Utpal;
+global Sonu;
+global Raj;
+
+Utpal=Utpal+1;
+load chirp.mat;
+for i=1:1:5
+    sound(y, Fs);
+end
+function Sonu_Callback(hObject, eventdata, handles)
+global Akshay;
+global Amol;
+global Utpal;
+global Sonu;
+global Raj;
+
+Sonu=Sonu+1;
+load chirp.mat;
+for i=1:1:5
+    sound(y, Fs);
+end
+
+% --- Executes on button press in Raj.
+function Raj_Callback(hObject, eventdata, handles)
+% hObject    handle to Raj (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+global Akshay;
+global Amol;
+global Utpal;
+global Sonu;
+global Raj;
+
+Raj=Raj+1;
+load chirp.mat;
+for i=1:1:5
+    sound(y, Fs);
+end
+function RESULTS_Callback(hObject, eventdata, handles)
+global Akshay;
+global Amol;
+global Utpal;
+global Sonu;
+global Raj;
+
+set(handles.Aks,'String',Akshay);
+set(handles.Amo,'String',Amol);
+set(handles.Son,'String',Sonu);
+set(handles.Utp,'String',Utpal);
+set(handles.Rj,'String',Raj);
+
+set(handles.Aks1,'String',100*Akshay/(Akshay+Amol+Sonu+Utpal+Raj));
+set(handles.Amo1,'String',100*Amol/(Akshay+Amol+Sonu+Utpal+Raj));
+set(handles.Son1,'String',100*Sonu/(Akshay+Amol+Sonu+Utpal+Raj));
+set(handles.Utp1,'String',100*Utpal/(Akshay+Amol+Sonu+Utpal+Raj));
+set(handles.Rj1,'String',100*Raj/(Akshay+Amol+Sonu+Utpal+Raj));
+
+set(handles.total,'String',Akshay+Amol+Sonu+Utpal+Raj);
+function Aks_Callback(hObject, eventdata, handles)
+function Aks_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function Amo_Callback(hObject, eventdata, handles)
+function Amo_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function Son_Callback(hObject, eventdata, handles)
+function Son_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function Utp_Callback(hObject, eventdata, handles)
+function Utp_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function Rj_Callback(hObject, eventdata, handles)
+function Rj_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function Aks1_Callback(hObject, eventdata, handles)
+function Aks1_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function Amo1_Callback(hObject, eventdata, handles)
+function Amo1_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function Utp1_Callback(hObject, eventdata, handles)
+function Utp1_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function Son1_Callback(hObject, eventdata, handles)
+function Son1_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function Rj1_Callback(hObject, eventdata, handles)
+function Rj1_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function total_Callback(hObject, eventdata, handles)
+function total_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
